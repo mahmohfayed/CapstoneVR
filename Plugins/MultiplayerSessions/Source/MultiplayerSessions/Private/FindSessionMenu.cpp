@@ -38,20 +38,24 @@ void UFindSessionMenu::OnFindSessions(const TArray<FOnlineSessionSearchResult>& 
 		FindSessions_Btn->SetIsEnabled(true);
 		return;
 	}
+	APlayerController* PlayerController = GetGameInstance()->GetFirstLocalPlayerController();
 
 	for (auto Result : SessionResults)
 	{
 		FString SettingsValue;
 		Result.Session.SessionSettings.Get(FName("MatchType"), SettingsValue);
+		
 		if (SettingsValue == MatchType) // loop through all of SettingsValue (which is FreeForAll now)
 		{
-			APlayerController* PlayerController = GetGameInstance()->GetFirstLocalPlayerController();
-			JoinSessionMenu = CreateWidget<UJoinSessionMenu>(PlayerController, JoinSessionMenuClass);
-			JoinSessionMenu->SearchResult = Result;
-			SessionList_ScrollBox->AddChild(JoinSessionMenu);
-			if (SessionList_ScrollBox)
+			if (JoinSessionMenuClass)
 			{
+				JoinSessionMenu = CreateWidget<UJoinSessionMenu>(PlayerController, JoinSessionMenuClass);
+				JoinSessionMenu->SearchResult = Result;
 				SessionList_ScrollBox->AddChild(JoinSessionMenu);
+				if (SessionList_ScrollBox)
+				{
+					SessionList_ScrollBox->AddChild(JoinSessionMenu);
+				}
 			}
 		}
 	}
