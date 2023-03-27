@@ -3,13 +3,6 @@
 	"EngineAssociation": "5.0",
 	"Category": "",
 	"Description": "",
-	"Modules": [
-		{
-			"Name": "CapstoneVR",
-			"Type": "Runtime",
-			"LoadingPhase": "Default"
-		}
-	],
 	"Plugins": [
 		{
 			"Name": "ResonanceAudio",
@@ -41,14 +34,6 @@
 			"Name": "RuntimeDataTable",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/4c7c4f8d523f4c90b2e26d23502c526c"
-		},
-		{
-			"Name": "VisualStudioTools",
-			"Enabled": false,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/362651520df94e4fa65492dbcba44ae2",
-			"SupportedTargetPlatforms": [
-				"Win64"
-			]
 		}
 	],
 	"TargetPlatforms": [
